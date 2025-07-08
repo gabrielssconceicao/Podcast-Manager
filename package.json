@@ -1,0 +1,29 @@
+{
+  "name": "podcast-manager",
+  "version": "1.0.0",
+  "description": "Podcast Manager - NodeJS API With Typescript and HTTP Module made during DIO's bootcamp",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "tsx src/server.ts",
+    "start:watch": "tsx watch src/server.ts",
+    "dist": "tsup src",
+    "start:dist": "npm run dist && node node/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielssconceicao/Podcast-Manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/gabrielssconceicao/Podcast-Manager/issues"
+  },
+  "homepage": "https://github.com/gabrielssconceicao/Podcast-Manager#readme",
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
