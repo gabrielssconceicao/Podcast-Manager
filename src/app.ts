@@ -3,7 +3,7 @@ import {getFilterEpisodes, getListEpisodes} from './controllers/podcast-controll
 import { Routes } from './routes/routes';
 import { HttpMethod } from './utils/http-methods';
 export const app = async (request: IncomingMessage,response: ServerResponse) => {
-  const [baseUrl,query] = request.url?.split('?') ?? ['', ''];
+  const baseUrl = request.url?.split('?')[0] ?? "";
   if(request.method === HttpMethod.GET && baseUrl === Routes.LIST_EPISODES) {
     await getListEpisodes(request,response)
   }

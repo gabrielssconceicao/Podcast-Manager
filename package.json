@@ -4,10 +4,10 @@
   "description": "Podcast Manager - NodeJS API With Typescript and HTTP Module made during DIO's bootcamp",
   "main": "index.js",
   "scripts": {
+    "start": "npm run dist && node  --env-file=.env dist/server.js",
     "start:dev": "tsx --env-file=.env src/server.ts",
     "start:watch": "tsx watch --env-file=.env  src/server.ts",
-    "dist": "tsup src",
-    "start:dist": "npm run dist && --env-file=.env node/server.js"
+    "dist": "tsup src"
   },
   "repository": {
     "type": "git",

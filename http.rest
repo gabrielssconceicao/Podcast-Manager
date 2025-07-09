@@ -1,6 +1,0 @@
-@baseUrl=http://localhost:3636/api 
-GET {{baseUrl}}/list
-
-###
-
-GET {{baseUrl}}/episodes?p=venus
