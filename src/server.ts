@@ -1,16 +1,17 @@
 import * as http from 'http'
 import {getFilterEpisodes, getListEpisodes} from './controllers/podcast-controller'
-const server = http.createServer(async (req: http.IncomingMessage,res: http.ServerResponse) => {
-  const [baseUrl,query] = req.url?.split('?') ?? ['', ''];
-  console.log(baseUrl,query)
-  if(req.method === 'GET' && baseUrl === '/api/list') {
-    await getListEpisodes(req,res)
+import { Routes } from './routes/routes';
+import { HttpMethod } from './utils/http-methods';
+const server = http.createServer(async (request: http.IncomingMessage,response: http.ServerResponse) => {
+  const [baseUrl,query] = request.url?.split('?') ?? ['', ''];
+  if(request.method === HttpMethod.GET && baseUrl === Routes.LIST_EPISODES) {
+    await getListEpisodes(request,response)
   }
-  if(req.method === 'GET' && baseUrl === '/api/episodes') {
-    await getFilterEpisodes(req,res)
+  if(request.method === HttpMethod.GET && baseUrl === Routes.FILTER_EPISODES) {
+    await getFilterEpisodes(request,response)
   }
 })
-const PORT = process.env.PORT
-server.listen(process.env.PORT || 3333, ()=>{
-  console.log(`Server is running on port ${process.env.PORT}`)
+const PORT = process.env.PORT || 3333
+server.listen(PORT, ()=>{
+  console.log(`Server is running on port ${PORT}`)
 })
